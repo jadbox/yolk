@@ -5,9 +5,9 @@ module.exports = {
   entry: path.resolve(__dirname, "./src/index.js"),
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "yolk-dist.js",
-    library: "yolk",
-    libraryTarget: 'umd',
+    filename: "yolk.min.js",
+    library: "Yolk",
+    libraryTarget: 'var',
     umdNamedDefine: true
   },
   externals: {
