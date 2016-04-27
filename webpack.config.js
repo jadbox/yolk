@@ -12,17 +12,41 @@ module.exports = {
   },
   externals: {
     "rxjs": "Rx",
-    "rxjs/add/observable/combineLatest":"Rx.Observable.combineLatest",
-    "rxjs/add/observable/of": "Rx.Observable.of",
-    "rxjs/add/operator/map": "Rx.Observable.prototype.map",
-    "rxjs/add/operator/mapTo": "Rx.Observable.prototype.mapTo",
-    "rxjs/add/operator/share":"Rx.Observable.prototype.share",
-    "rxjs/add/operator/switchMap":"Rx.Observable.prototype.switchMap",
-    "rxjs/BehaviorSubject": "Rx.BehaviorSubject",
-    "rxjs/Observable": "Rx.Observable",
-    "rxjs/Observer":"Rx.Observer",
-    "rxjs/Subject":"Rx.Subject",
-    "rxjs/Subscription":"Rx.Subscription"
+    "rxjs/add/observable/combineLatest": {
+      commonjs: "rxjs/add/observable/combineLatest",
+      commonjs2: "rxjs/add/observable/combineLatest",
+      root: ["Rx", "Observable"]
+    },
+    "rxjs/add/observable/of": {
+      commonjs: "rxjs/add/observable/of",
+      commonjs2: "rxjs/add/observable/of",
+      root: ["Rx", "Observable"]
+    },
+    "rxjs/add/operator/map": {
+      commonjs: "rxjs/add/observable/of",
+      commonjs2: "rxjs/add/observable/of",
+      root: ["Rx", "Observable", "prototype"]
+    },
+    "rxjs/add/operator/mapTo": {
+      commonjs: "rxjs/add/observable/mapTo",
+      commonjs2: "rxjs/add/observable/mapTo",
+      root: ["Rx", "Observable", "prototype"]
+    },
+    "rxjs/add/operator/share":{
+      commonjs: "rxjs/add/observable/share",
+      commonjs2: "rxjs/add/observable/share",
+      root: ["Rx", "Observable", "prototype"]
+    },
+    "rxjs/add/operator/switchMap":{
+      commonjs: "rxjs/add/observable/switchMap",
+      commonjs2: "rxjs/add/observable/switchMap",
+      root: ["Rx", "Observable", "prototype"]
+    },
+    "rxjs/BehaviorSubject": "umd Rx",
+    "rxjs/Observable": "umd Rx",
+    "rxjs/Observer":"umd Rx",
+    "rxjs/Subject":"umd Rx",
+    "rxjs/Subscription":"umd Rx"
   },
   module: {
     loaders: [{
