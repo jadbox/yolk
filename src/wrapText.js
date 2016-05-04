@@ -10,6 +10,8 @@ function wrap (obj: any): VirtualElement {
     return obj
   }
 
+  if(obj===null || obj===undefined) obj = '';
+
   return VirtualText.create(obj.toString())
 }
 
