@@ -4400,6 +4400,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return obj;
 	  }
 
+	  if (obj === null || obj === undefined) obj = '';
+
 	  return _VirtualText.VirtualText.create(obj.toString());
 	}
 
