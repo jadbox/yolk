@@ -3201,7 +3201,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return s.unsubscribe();
 	      });
 	      this._children.forEach(function (c) {
-	        return c.destroy();
+	        if (c && c.destroy !== undefined) c.destroy();
 	      });
 	    }
 	  }], [{
@@ -4316,22 +4316,29 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 77 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.CustomEvent = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _document = __webpack_require__(59);
+
+	var _document2 = _interopRequireDefault(_document);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var CustomEvent = exports.CustomEvent = global.CustomEvent || function () {
 	  var DEFAULT_PARAMS = { bubbles: false, cancelable: false, detail: undefined };
 
 	  function _CustomEvent(_event, _params) {
 	    var params = _extends({}, DEFAULT_PARAMS, _params);
-	    var event = document.createEvent("CustomEvent");
+	    var event = _document2.default.createEvent('CustomEvent');
 
 	    event.initCustomEvent(_event, params.bubbles, params.cancelable, params.detail);
 	    return event;
@@ -4400,7 +4407,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return obj;
 	  }
 
-	  if (obj === null || obj === undefined) obj = '';
+	  if (obj === null || obj === undefined) {
+	    return _VirtualText.VirtualText.create('');
+	  }
 
 	  return _VirtualText.VirtualText.create(obj.toString());
 	}
